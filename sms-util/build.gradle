@@ -1,0 +1,7 @@
+dependencies {
+    // Library
+    implementation extLib.slf4jApi
+    implementation extLib.apacheHttpClient
+    implementation extLib.guava
+    implementation extLib.okHttp3
+}

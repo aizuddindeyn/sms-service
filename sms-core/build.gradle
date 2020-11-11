@@ -1,0 +1,12 @@
+dependencies {
+    // Project
+    implementation project(':sms-util')
+    implementation project(':sms-dal')
+
+    // Library
+    implementation extLib.slf4jApi
+    implementation extLib.apacheHttpClient
+    implementation extLib.guava
+    implementation extLib.okHttp3
+    implementation extLib.jacksonJava8
+}

@@ -1,0 +1,15 @@
+dependencies {
+    // Sub-module
+    implementation project(':sms-util')
+    implementation project(':sms-dal')
+    implementation project(':sms-core')
+
+    // Service Provider
+    implementation spLib.alicloudSdk
+    implementation spLib.awsSnsSdk
+    implementation spLib.twilioSdk
+
+    // Library
+    implementation extLib.guava
+    implementation extLib.gson
+}

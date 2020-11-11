@@ -1,0 +1,35 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            url 'https://repo.spring.io/snapshot'
+        }
+        maven {
+            url 'https://repo.spring.io/milestone'
+        }
+    }
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+dependencies {
+    // Sub-module
+    implementation project(':sms-util')
+    implementation project(':sms-core')
+    implementation project(':sms-biz-service')
+
+    // Cache
+    implementation cacheLib.springBootCache
+    implementation cacheLib.ehCache
+    runtimeOnly cacheLib.javaxCache
+
+    // 3rd Party
+    implementation extLib.lmax
+    implementation extLib.guava
+    implementation extLib.jacksonJava8
+}

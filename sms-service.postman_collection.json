@@ -1,0 +1,53 @@
+{
+	"info": {
+		"_postman_id": "40a55588-fe78-41f3-9703-e25c2a5bbed9",
+		"name": "sms-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/1.0/sms/instant",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "e8254673-8b62-439b-84fe-66a5a75ee3ce",
+						"exec": [
+							"var moment = require('moment');\r",
+							"pm.globals.set(\"timestampIso\", moment().format(\"YYYY-MM-DD HH:mm:ss.SSS\"));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"mobile\": \"60133532820\",\r\n    \"message\": \"Initial Testing\",\r\n    \"reference\": \"{{$guid}}\",\r\n    \"requestTime\": \"{{timestampIso}}\"\r\n}"
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{ENDPOINT}}/1.0/sms/instant",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{ENDPOINT}}"
+					],
+					"path": [
+						"1.0",
+						"sms",
+						"instant"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

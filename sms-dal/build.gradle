@@ -1,0 +1,13 @@
+dependencies {
+    // Project
+    implementation project(':sms-util')
+
+    // Cache
+    implementation cacheLib.springBootCache
+    implementation cacheLib.ehCache
+    runtimeOnly cacheLib.javaxCache
+
+    // Library
+    implementation dbLib.hibernateJ8
+    runtimeOnly dbLib.h2database
+}
